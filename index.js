@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('<h1>Hello from AWS!</h1>');
+  const region = process.env.AWS_REGION || 'unknown';
+  res.send(`<h1>Hello from ${region}!</h1>`);
 });
 
 const PORT = process.env.PORT || 3000;
